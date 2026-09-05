@@ -4,7 +4,7 @@
 
 In 150–250 words, explain how the Python class and `main()` function relate to the running process, ROS node, publisher or subscriber, topic, and message visible in the ROS graph.
 
-[Your response]
+The python class and 'main()' function relate to the running process as the class sets up the bare bone instructions of the publisher or subscriber, while the main function takes that class and actually creates a new publisher or subscriber object that will create and run it. The class helps define the node name, topic name, message type, and rate of publishing or callback of that publisher or subscriber. Once the executable files are created this compiles the code and sets up the defined topic(s) that the publisher or subscriber will publish/listen to. Then in the running ROS graph the /status_publisher points into /lab0/status topic as it publishes to it, while the /status_monitor node has a arrow exiting from the /lab0/status topic as it listens from it.
 
 ## Changing the message contract
 
@@ -24,8 +24,3 @@ Describe one failure or wrong result, the evidence that helped you locate it, an
 
 [Your response]
 
-## CPE 691 extension
-
-Delete this section if you are enrolled in CPE 491. In 150–250 words, explain the publisher/subscriber endpoint and QoS information reported by `ros2 topic info /lab0/status --verbose`. You may compare it with `/lab0/count` if that helps distinguish message-type information from QoS settings.
-
-[Your response]
