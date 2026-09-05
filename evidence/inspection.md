@@ -117,7 +117,7 @@ ros2 node info /status_monitor
     /rosout: rcl_interfaces/msg/Log
 ```
 
-**Interpretation:** [Explain how this supports the required node names, topic, type, publisher, and subscriber.]
+**Interpretation:** 
 This supports the required node names as the displayed nodes are both called /status_monitor and /status_publisher on the first line after getting the node info. The topics and type are verified as "/lab0/status" and "std_msgs/msg/String" in the publisher/subscriber information respectively when using the node info command.
 
 ### Message and rate
@@ -140,7 +140,7 @@ average rate: 3.997
 
 ```
 
-**Interpretation:** [Explain how this supports the required message content and 4 Hz rate.]
+**Interpretation:** 
 This supports the required message content as the displayed data prints a string ans the time the message was received. The second command line output verifies the 4Hz rate as it displays the average rate as 3.997Hz.
 
 ## Part 6: Your count system
@@ -148,10 +148,31 @@ This supports the required message content as the displayed data prints a string
 **Commands and relevant output:**
 
 ```text
-[commands and output]
+ros2 topic list -t
+/lab0/count [std_msgs/msg/Int32]
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/rosout [rcl_interfaces/msg/Log]
+
+ros2 node info /count_publisher
+/count_publisher
+  Subscribers:
+
+  Publishers:
+    /lab0/count: std_msgs/msg/Int32
+
+ros2 node info /count_monitor
+/count_monitor
+  Subscribers:
+    /lab0/count: std_msgs/msg/Int32
+
+ros2 topic hz /lab0/count 
+average rate: 1.002
+	min: 0.995s max: 1.001s std dev: 0.00302s window: 2
+
 ```
 
-**Interpretation:** [Explain how this supports the node names, /lab0/count topic, Int32 type, publisher/subscriber connection, increasing values, and 1 Hz rate.]
+**Interpretation:** 
+This supports the required node names as when getting node info for both the publisher and subscriber, they are displayed as their required names and publishing or listening to the same topic. Additionally, the topic list -t command supports the topic list and its type as it indicates that it is of type int32. Lastly, the 1Hz rate is confirmed as the average rate is 1.002.
 
 ## CPE 691 extension
 
