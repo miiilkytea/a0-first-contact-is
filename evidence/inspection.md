@@ -5,12 +5,25 @@ Replace every bracketed prompt with your own observation. Keep output excerpts s
 ## Part 1: First observation
 
 **What appears to be happening?**  
-[Your answer]
+In the terminal running the talker it seems to be publishing "Hello World: 'time' every second. Then in the second terminal running the listener it displays "I heard: [Hello World: 'time']." The listener starts listening  to the publisher once I start running the listener. 
 
 **What did you observe that supports this?**  
-[Your answer]
+Evidence that supports this is that after starting the publisher the listener does not start from time 0, but rather the time the publisher last published.
 
 ## Part 2: Standard demo
+node list - found /listener & /talker nodes
+
+node info /talker - found that it is publishing to /chatter, /parameter_events, and /rosout
+
+topic list -t - displays the topics /chatter, /parameter_events, and /rosout with their types
+
+topic info /chatter - displays topic type, number of publishers, and number of subscribers to the /chatter topic
+
+interface show std_msgs/msg/String - displays example of string message "string data"
+
+topic echo /chatter --once - displays the string data being published from the talker node in that moment
+
+topic hz /chatter - displays the rate as to how often the /chatter topic is being published to
 
 ### Running nodes
 
